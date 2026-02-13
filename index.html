@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Google+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* ... (saara CSS waisa hi rahega) ... */
         :root {
             /* Professional Color Palette */
             --primary-gradient: linear-gradient(135deg, #1a73e8 0%, #34a853 100%);
@@ -952,7 +953,8 @@
         </div>
         
         <div class="services-grid">
-            <a href="https://playcodeagent-bit.github.io/Loans/" class="service-card" target="_blank">
+            <!-- FIXED: Removed target="_blank" to open in same tab -->
+            <a href="https://playcodeagent-bit.github.io/Loans/" class="service-card">
                 <div class="card-icon">
                     <span class="material-icons-round">account_balance_wallet</span>
                 </div>
@@ -966,7 +968,8 @@
                 </span>
             </a>
             
-            <a href="https://playcodeagent-bit.github.io/Google/" class="service-card" target="_blank">
+            <!-- FIXED: Removed target="_blank" to open in same tab -->
+            <a href="https://playcodeagent-bit.github.io/Google/" class="service-card">
                 <div class="card-icon">
                     <span class="material-icons-round">code</span>
                 </div>
@@ -980,7 +983,8 @@
                 </span>
             </a>
             
-            <a href="https://playcodeagent-bit.github.io/datamgmt/" class="service-card" target="_blank">
+            <!-- FIXED: Removed target="_blank" to open in same tab -->
+            <a href="https://playcodeagent-bit.github.io/datamgmt/" class="service-card">
                 <div class="card-icon">
                     <span class="material-icons-round">analytics</span>
                 </div>
@@ -1003,21 +1007,24 @@
             </p>
             
             <div class="tools-grid">
-                <a href="https://playcodeagent-bit.github.io/PlaycodeAi/" class="tool-item" target="_blank">
+                <!-- FIXED: Removed target="_blank" to open in same tab -->
+                <a href="https://playcodeagent-bit.github.io/PlaycodeAi/" class="tool-item">
                     <div class="tool-icon">
                         <span class="material-icons-round">smart_toy</span>
                     </div>
                     <span class="tool-title">AI Support</span>
                 </a>
                 
-                <a href="https://playcodeagent-bit.github.io/video/" class="tool-item" target="_blank">
+                <!-- FIXED: Removed target="_blank" to open in same tab -->
+                <a href="https://playcodeagent-bit.github.io/video/" class="tool-item">
                     <div class="tool-icon">
                         <span class="material-icons-round">videocam</span>
                     </div>
                     <span class="tool-title">Video Player</span>
                 </a>
                 
-                <a href="https://playcodeagent-bit.github.io/Media/" class="tool-item" target="_blank">
+                <!-- FIXED: Removed target="_blank" to open in same tab -->
+                <a href="https://playcodeagent-bit.github.io/Media/" class="tool-item">
                     <div class="tool-icon">
                         <span class="material-icons-round">play_circle</span>
                     </div>
@@ -1054,7 +1061,8 @@
             <div>
                 <h4 style="font-size: var(--text-lg); font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-6);">Quick Links</h4>
                 <ul class="footer-links">
-                    <li><a href="https://playcodeagent-bit.github.io/Privacypolicies/" target="_blank">
+                    <!-- FIXED: Removed target="_blank" to open in same tab -->
+                    <li><a href="https://playcodeagent-bit.github.io/Privacypolicies/">
                         <span class="material-icons-round" style="font-size: 16px;">shield</span>
                         Privacy Policy
                     </a></li>
@@ -1062,7 +1070,8 @@
                         <span class="material-icons-round" style="font-size: 16px;">support_agent</span>
                         Contact Support
                     </a></li>
-                    <li><a href="https://playcodeagent-bit.github.io/PlaycodeAi/" target="_blank">
+                    <!-- FIXED: Removed target="_blank" to open in same tab -->
+                    <li><a href="https://playcodeagent-bit.github.io/PlaycodeAi/">
                         <span class="material-icons-round" style="font-size: 16px;">smart_toy</span>
                         AI Assistant
                     </a></li>
@@ -1252,6 +1261,21 @@
         window.addEventListener('scroll', () => {
             const header = document.querySelector('.main-header');
             header.style.boxShadow = window.scrollY > 50 ? 'var(--shadow-medium)' : 'none';
+        });
+
+        // FIXED: Add click handlers for all external links to ensure they open in same tab
+        document.addEventListener('DOMContentLoaded', function() {
+            // Remove target="_blank" from all links (just to be safe)
+            document.querySelectorAll('a[target="_blank"]').forEach(link => {
+                link.removeAttribute('target');
+            });
+            
+            // Ensure all links without target open in same tab
+            document.querySelectorAll('a').forEach(link => {
+                if (!link.hasAttribute('target')) {
+                    link.setAttribute('target', '_self');
+                }
+            });
         });
     </script>
 </body>
